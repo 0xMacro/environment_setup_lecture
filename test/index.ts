@@ -38,6 +38,16 @@ describe("Guestbook", function () {
     ]);
   });
 
+  it("unused", async function () {
+    [account1, account2] = await ethers.getSigners();
+
+    const Guestbook = await ethers.getContractFactory("Guestbook");
+    const guestbook: Guestbook = await Guestbook.deploy();
+    await guestbook.deployed();
+
+    await guestbook.unused(1, true);
+  })
+
   it("should advance time", async () => {
     let blockNumber = await provider.getBlockNumber()
     await increaseTime(60)

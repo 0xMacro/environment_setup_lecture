@@ -31,11 +31,12 @@ contract Guestbook {
         emit NewEntry(msg.sender, entries.length - 1);
     }
 
-    // function unused(uint256 foo, bool bar) external returns (uint256) {
-    //     if (bar) {
-    //         return block.timestamp;
-    //     } else {
-    //         return 42;
-    //     }
-    // }
+    function unused(uint256 foo, bool bar) external returns (uint256) {
+        require(foo > 0, "foo must be greater than 0");
+        if (bar) {
+            return block.timestamp;
+        } else {
+            return 42;
+        }
+    }
 }
