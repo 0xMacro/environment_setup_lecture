@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.4;
 
-import "hardhat/console.sol";
-
 contract Guestbook {
     // Goal: Users can sign with a message
     // Goal: Users can optionally leave some ETH
@@ -26,17 +24,15 @@ contract Guestbook {
             Entry({signer: msg.sender, message: _message, gift: msg.value})
         );
 
-        uint pseudoRand = uint(keccak256(abi.encodePacked(block.timestamp, blockhash(block.number))));
-
         emit NewEntry(msg.sender, entries.length - 1);
     }
 
-    function unused(uint256 foo, bool bar) external returns (uint256) {
+    function someFunction(uint256 foo, bool bar) external returns (bool) {
         require(foo > 0, "foo must be greater than 0");
         if (bar) {
-            return block.timestamp;
+            return true;
         } else {
-            return 42;
+            return false;
         }
     }
 }

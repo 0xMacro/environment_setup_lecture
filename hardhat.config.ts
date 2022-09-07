@@ -28,9 +28,9 @@ const config: HardhatUserConfig = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200
-      }
-    }
+        runs: 200,
+      },
+    },
   },
   networks: {
     ropsten: {
@@ -39,7 +39,7 @@ const config: HardhatUserConfig = {
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
   },
-  
+
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
